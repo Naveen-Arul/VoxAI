@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Enhanced Dark theme - VoxAI premium design */
+    --background: 220 26% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 26% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 26% 9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Cyan-Purple gradient theme */
+    --primary: 189 94% 58%;
+    --primary-foreground: 220 26% 11%;
+    --primary-glow: 189 94% 68%;
+
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 215 16% 60%;
+
+    --accent: 269 86% 65%;
+    --accent-foreground: 210 40% 98%;
+    --accent-glow: 269 86% 75%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 189 100% 56%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 189 100% 56%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 15%;
+    --sidebar-ring: 189 100% 56%;
+
+    /* Premium font families */
+    --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+    /* Enhanced gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(189 94% 58%), hsl(269 86% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 26% 9%), hsl(220 26% 12%));
+    --gradient-card: linear-gradient(135deg, hsl(220 26% 9%) 0%, hsl(220 26% 11%) 100%);
+    --gradient-hover: linear-gradient(135deg, hsl(189 94% 58% / 0.1), hsl(269 86% 65% / 0.1));
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(189 94% 58% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 80% 80%, hsl(269 86% 65% / 0.15) 0px, transparent 50%);
+    
+    /* Enhanced glow effects */
+    --glow-primary: 0 0 30px hsl(189 94% 58% / 0.4), 0 0 60px hsl(189 94% 58% / 0.2);
+    --glow-accent: 0 0 30px hsl(269 86% 65% / 0.4), 0 0 60px hsl(269 86% 65% / 0.2);
+    --glow-button: 0 4px 20px hsl(189 94% 58% / 0.3);
+    
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    background-image: var(--gradient-mesh);
+    background-attachment: fixed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .gradient-hover {
+    background: var(--gradient-hover);
+  }
+  
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  
+  .glow-button {
+    box-shadow: var(--glow-button);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .animate-voice-pulse {
+    animation: voice-pulse 1.5s ease-in-out infinite alternate;
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  @keyframes voice-pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+  }
+  
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+}
+
+/* ChatGPT-Style Markdown Rendering */
+@layer components {
+  .markdown-content {
+    @apply text-sm leading-relaxed;
+  }
+  
+  /* Paragraphs */
+  .markdown-content p {
+    @apply my-3 leading-7;
+  }
+  
+  /* Headings */
+  .markdown-content h1,
+  .markdown-content h2,
+  .markdown-content h3,
+  .markdown-content h4,
+  .markdown-content h5,
+  .markdown-content h6 {
+    @apply font-semibold mt-6 mb-4;
+    color: hsl(var(--primary));
+  }
+  
+  .markdown-content h1 { @apply text-2xl; }
+  .markdown-content h2 { @apply text-xl; }
+  .markdown-content h3 { @apply text-lg; }
+  .markdown-content h4 { @apply text-base; }
+  
+  /* Lists */
+  .markdown-content ul,
+  .markdown-content ol {
+    @apply my-4 ml-6 space-y-2;
+  }
+  
+  .markdown-content ul {
+    @apply list-disc;
+  }
+  
+  .markdown-content ol {
+    @apply list-decimal;
+  }
+  
+  .markdown-content li {
+    @apply leading-7;
+  }
+  
+  .markdown-content li > p {
+    @apply my-1;
+  }
+  
+  /* Inline code */
+  .markdown-content :not(pre) > code {
+    @apply px-1.5 py-0.5 rounded text-sm font-mono;
+    background: hsl(var(--muted));
+    color: hsl(var(--accent));
+    border: 1px solid hsl(var(--border));
+  }
+  
+  /* Code blocks */
+  .markdown-content pre {
+    @apply my-4 rounded-lg overflow-x-auto;
+    background: #0d1117 !important;
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .markdown-content pre code {
+    @apply block p-4 text-sm font-mono leading-relaxed;
+    background: transparent !important;
+    border: none !important;
+    color: #c9d1d9 !important;
+  }
+  
+  /* Syntax highlighting overrides */
+  .markdown-content .hljs {
+    @apply bg-transparent;
+  }
+  
+  /* Strong/Bold */
+  .markdown-content strong {
+    @apply font-semibold;
+    color: hsl(var(--foreground));
+  }
+  
+  /* Emphasis/Italic */
+  .markdown-content em {
+    @apply italic;
+  }
+  
+  /* Links */
+  .markdown-content a {
+    @apply underline;
+    color: hsl(var(--primary));
+  }
+  
+  .markdown-content a:hover {
+    color: hsl(var(--primary-glow));
+  }
+  
+  /* Blockquotes */
+  .markdown-content blockquote {
+    @apply border-l-4 pl-4 my-4 italic;
+    border-color: hsl(var(--primary));
+    color: hsl(var(--muted-foreground));
+  }
+  
+  /* Tables */
+  .markdown-content table {
+    @apply w-full border-collapse my-4;
+  }
+  
+  .markdown-content th,
+  .markdown-content td {
+    @apply border px-4 py-2 text-left;
+    border-color: hsl(var(--border));
+  }
+  
+  .markdown-content th {
+    @apply font-semibold;
+    background: hsl(var(--muted));
+  }
+  
+  .markdown-content tr:nth-child(even) {
+    background: hsl(var(--muted) / 0.3);
+  }
+  
+  /* Horizontal rules */
+  .markdown-content hr {
+    @apply my-6 border-t;
+    border-color: hsl(var(--border));
+  }
+  
+  /* Images */
+  .markdown-content img {
+    @apply max-w-full rounded-lg my-4;
+  }
+  
+  /* Task lists */
+  .markdown-content input[type="checkbox"] {
+    @apply mr-2;
+  }
+}
