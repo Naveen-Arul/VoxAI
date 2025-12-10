@@ -148,15 +148,15 @@ VOX-AI/
 4. **Create `.env` file**
    ```env
    # MongoDB
-   MONGODB_URL=mongodb+srv://username:password@cluster.mongodb.net/
+   MONGODB_URL=your_mongodb_connection_string
    DATABASE_NAME=voxai_db
 
    # Groq API
-   GROQ_API_KEY=your_groq_api_key_here
+   GROQ_API_KEY=your_groq_api_key
    GROQ_MODEL=llama-3.1-8b-instant
 
    # JWT Secret
-   JWT_SECRET_KEY=your_super_secret_jwt_key_here_minimum_32_characters
+   JWT_SECRET_KEY=your_secret_key_minimum_32_characters
    JWT_ALGORITHM=HS256
    ACCESS_TOKEN_EXPIRE_MINUTES=10080
 
