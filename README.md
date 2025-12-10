@@ -393,8 +393,8 @@ This project is licensed under the MIT License.
 
 ## 📧 Contact
 
-For questions or support, please open an issue on GitHub.
+For questions contact naveenarul111@gmail.com
 
 ---
 
-**Built with ❤️ using FastAPI, React, and AI**
+**Built by **NAVEEN A** using FastAPI, React, and AI**
